@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "ambar.bundle-size",
+    "naumovs.color-highlight",
+    "github.copilot",
+    "oderwat.indent-rainbow",
+    "deinsoftware.arrow-function-snippets",
+    "william-voyek.vscode-nginx",
+    "wayou.vscode-todo-highlight"
+  ]
+}

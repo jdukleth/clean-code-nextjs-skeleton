@@ -1,0 +1,23 @@
+{
+  "apps": [
+    {
+      "name": "[blue]my-repo-name",
+      "namespace": "my-repo-name-blue",
+      "exec_mode": "cluster",
+      "instances": "max",
+      "script": "node_modules/next/dist/bin/next",
+      "args": "start -p 3001",
+      "cwd": "/srv/www/production/my-repo-name-blue"
+    },
+
+    {
+      "name": "[green]my-repo-name",
+      "namespace": "my-repo-name-green",
+      "exec_mode": "cluster",
+      "instances": "max",
+      "script": "node_modules/next/dist/bin/next",
+      "args": "start -p 3002",
+      "cwd": "/srv/www/production/my-repo-name-green"
+    }
+  ]
+}

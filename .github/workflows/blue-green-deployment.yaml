@@ -1,0 +1,63 @@
+name: "Blue-Green Deployment [Zero Down-Time]"
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Set Up SSH Private Key
+      uses: webfactory/ssh-agent@v0.4.1
+      with:
+        ssh-private-key: ${{ secrets.SERVER_SSH_PRIVATE_KEY }}
+
+    - name: Connect to SSH and Deploy
+      run: |
+        ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} '
+          ###############################
+          # Begin Blue-Green Deployment #
+          ###############################
+
+          # determine which PM2 app is currently idle
+          current=$(pm2 describe [blue]my-repo-name | grep "status" | head -n 1 | awk '"'"'{print $4}'"'"' )
+          if [ "$current" == "online" ]; then
+            active_app="blue"
+            active_port="3001"
+            idle_app="green"
+            idle_port="3002"
+          else
+            active_app="green"
+            active_port="3002"
+            idle_app="blue"
+            idle_port="3001"
+          fi
+
+          # build the idle app - exit on failure
+          cd /srv/www/production/my-repo-name-$idle_app
+          git pull
+          npm install
+          if ! npm run build; then
+            echo "Build failed on my-repo-name-$idle_app."
+            exit 1
+          fi
+
+          # start the idle app in preparation of the switch-over
+          ipm2 start [$idle_app]my-repo-name
+
+          # turn the idle app into the LIVE app
+          sudo sed -i 's/proxy_pass http:\/\/127.0.0.1:'"$active_port"'/proxy_pass http:\/\/127.0.0.1:'"$idle_port"'/g' /srv/www/.config/.nginx/sites-enabled/mydomain.com
+          sudo nginx -s reload
+
+          # stop the previously live, now idle, app
+          #  - preserves resources
+          #  - necessary to make the PM2 describe command work on next deployment)
+          ipm2 stop [$active_app]my-repo-name
+        '
