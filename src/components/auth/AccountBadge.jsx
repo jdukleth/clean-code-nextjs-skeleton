@@ -1,14 +1,15 @@
 import { Flex, Text, Button, Box } from '@radix-ui/themes'
 import Link from 'next/link'
 import { getServerSession } from 'next-auth'
+import css from './AccountBadge.module.scss'
 
 export const AccountBadge = async () => {
   const session = await getServerSession()
   const firstName = session?.user?.name?.split(' ')?.[0] ?? 'Account'
 
   return (
-    <Box asChild style={css.wrap}>
-      {session
+    <Box className={css.wrap}>
+      {!!session
         ? (
           <Flex gap="2" align="center">
             <Box grow="1">
@@ -21,17 +22,10 @@ export const AccountBadge = async () => {
         )
         : (
           <Button asChild>
-            <Link href="/api/auth/signin">Sign In</Link>
+            <Link href="/api/auth/signin" className={css.button}>Sign In</Link>
           </Button>
         )
       }
     </Box>
   )
-}
-
-const css = {
-  wrap: {
-    padding: '8px 16px',
-    backgroundColor: '#181818',
-  }
 }

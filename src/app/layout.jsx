@@ -3,6 +3,7 @@ import '@radix-ui/themes/styles.css'
 import { Flex, Box, Theme } from '@radix-ui/themes'
 import { SideNavigation } from 'components/layout/SideNavigation'
 import { Inter } from 'next/font/google'
+import css from './layout.module.scss'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,9 +20,9 @@ const RootLayout = async ({ children }) => {
       </head>
       <body className={inter.className}>
         <Theme appearance="dark" accentColor="ruby" grayColor="slate" radius="small">
-          <Flex style={css.wrap} align="stretch">
+          <Flex className={css.wrap} align="stretch">
             <SideNavigation />
-            <Box style={css.content}>
+            <Box className={css.content}>
               {children}
             </Box>
           </Flex>
@@ -32,14 +33,3 @@ const RootLayout = async ({ children }) => {
 }
 
 export default RootLayout
-
-const css = {
-  wrap: {
-    height: '100vh',
-    maxHeight: '100vh'
-  },
-
-  content: {
-    padding: '16px',
-  }
-}

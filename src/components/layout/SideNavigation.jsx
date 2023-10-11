@@ -3,10 +3,11 @@ import { AccountBadge } from 'components/auth/AccountBadge'
 import { Centered } from 'components/radix-ui/Centered'
 import Image from 'next/image'
 import Link from 'next/link'
+import css from './SideNavigation.module.scss'
 
 export const SideNavigation = () => {
   return (
-    <Flex direction="column" style={css.sidebar}>
+    <Flex direction="column" className={css.sidebar}>
       <Flex direction="column" grow="1">
         {/* logo */}
         <Centered>
@@ -16,11 +17,11 @@ export const SideNavigation = () => {
         </Centered>
 
         {/* links */}
-        <Flex direction="column" grow="1" style={css.links}>
-          <Link style={css.link} href="/">Home</Link>
-          <Link style={css.link} href="/protected-example">Protected Example</Link>
-          <Link style={css.link} href="/rest-api-example">REST API Example</Link>
-          <Link style={css.link} href="/firebase-example">Firebase Example</Link>
+        <Flex direction="column" grow="1" className={css.links}>
+          <Link href="/">Home</Link>
+          <Link href="/protected-example">Protected Example</Link>
+          <Link href="/rest-api-example">REST API Example</Link>
+          <Link href="/firebase-example">Firebase Example</Link>
         </Flex>
       </Flex>
 
@@ -28,22 +29,4 @@ export const SideNavigation = () => {
       <AccountBadge />
     </Flex>
   )
-}
-
-const css = {
-  sidebar: {
-    width: '200px',
-    height: '100%',
-    maxHeight: '100%',
-    backgroundColor: '#121212',
-  },
-
-  links: {
-    height: '0',
-    overflowY: 'auto',
-  },
-
-  link: {
-    padding: '8px 16px'
-  },
 }
