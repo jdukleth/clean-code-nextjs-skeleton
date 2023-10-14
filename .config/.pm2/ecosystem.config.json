@@ -1,7 +1,7 @@
 {
   "apps": [
     {
-      "name": "[blue]my-repo-name",
+      "name": "my-repo-name[blue]",
       "namespace": "my-repo-name-blue",
       "exec_mode": "cluster",
       "instances": "max",
@@ -11,7 +11,7 @@
     },
 
     {
-      "name": "[green]my-repo-name",
+      "name": "my-repo-name[green]",
       "namespace": "my-repo-name-green",
       "exec_mode": "cluster",
       "instances": "max",
