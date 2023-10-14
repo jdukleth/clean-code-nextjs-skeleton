@@ -26,10 +26,10 @@
   * Make 'use-client' islands be as small and isolated as possible
   * Similar to Astro islands, but not as extreme and therefore not needed as often
 * REWIRE your brain to think in `actions`
-  * Almost no JS goes into pages/components files
+  * Almost no JS logic goes into pages/components files
   * Any actions taken are placed into individual files in the `actions` folder/subfolders
   * Actions tie directly into the `zustand` state management system
-  * Even React 18 `server actions` can be organized into the actions folder
+  * Even Next.js `server actions` can be organized into the actions folder
 
 ## Deployment
 * Zero downtime Blue-Green Deployment
