@@ -8,18 +8,17 @@ import { useAccount } from 'store/useAccount'
 import css from './AccountBadge.module.scss'
 
 export const AccountBadge = () => {
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
   const { account: { firstName }, setAccount } = useAccount()
+  const isAuthenticated = status === 'authenticated'
 
   useEffect(() => { setAccount(session) }, [session])
 
-  console.log('rendering AccountBadge')
-
-  if (session === undefined) return <>Loading...</>
+  if (status === 'loading') return <>Loading...</>
 
   return (
     <Box className={css.wrap}>
-      {!!firstName
+      {isAuthenticated
         ? (
           <Flex gap="2" align="center">
             <Box grow="1">

@@ -1,10 +1,16 @@
-import './globals.css'
+import './styles/globals.scss'
+import '@radix-ui/themes/styles.css'
+import './styles/theme-config.scss'
 import { Flex, Box, Theme } from '@radix-ui/themes'
 import { SideNavigation } from 'components/layout/SideNavigation'
 import { Inter } from 'next/font/google'
 import css from './layout.module.scss'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+})
 
 export const metadata = {
   title: 'clean-code-nextjs-skeleton',
