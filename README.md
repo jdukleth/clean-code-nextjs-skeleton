@@ -24,9 +24,9 @@
   * Provides a massive performance increase, reduced server load, saved bandwidth costs, caching, etc
 * ONLY use isolated, client component [islands](https://docs.astro.build/en/concepts/islands/) for "smallest unit" dynamism
   * Make 'use-client' islands be as small and isolated as possible
-  * Similar to Astro islands, but not as extreme and therefore not needed as often
+  * Vaguely similar to Astro islands, but not as extreme and therefore not needed as often
 * REWIRE your brain to think in `actions`
-  * Almost no JS logic goes into pages/components files
+  * No JS logic goes into `app` or `components` files
   * Any actions taken are placed into individual files in the `actions` folder/subfolders
   * Actions tie directly into the `zustand` state management system
   * Even Next.js `server actions` can be organized into the actions folder
