@@ -6,6 +6,10 @@ import { SideNavigation } from 'components/layout/SideNavigation'
 import { Inter } from 'next/font/google'
 import css from './layout.module.scss'
 
+// FIXES EMPLOYED:
+// Radix + Next.js Font: https://www.radix-ui.com/themes/docs/theme/typography#with-nextfont
+// Radix + Dark Mode Hydration: https://www.radix-ui.com/themes/docs/theme/dark-mode#with-other-libraries
+
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -19,7 +23,7 @@ export const metadata = {
 
 const RootLayout = async ({ children }) => {
   return (
-    <html lang="en">
+    <html lang="en" className="dark-theme dark" style={{ colorScheme: 'dark' }}>
       <head>
         <link rel="icon" href="/favicon.png" />
       </head>

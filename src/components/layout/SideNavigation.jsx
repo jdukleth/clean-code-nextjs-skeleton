@@ -4,7 +4,6 @@ import { SessionProvider } from 'components/providers/SessionProvider'
 import { Centered } from 'components/radix-ui/Centered'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Suspense } from 'react'
 import css from './SideNavigation.module.scss'
 
 export const SideNavigation = async () => (
@@ -22,7 +21,7 @@ export const SideNavigation = async () => (
         <Link href="/">Home</Link>
         <Link href="/protected-example">Protected Example</Link>
         <Link href="/rest-api-example">REST API Example</Link>
-        <Link href="/firebase-example">Firebase Example</Link>
+        <Link href="/prisma-example">Prisma Example</Link>
       </Flex>
     </Flex>
 
