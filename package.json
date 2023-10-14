@@ -1,7 +1,7 @@
 {
-  "name": "greatest-nextjs-skeleton-ever",
+  "name": "clean-code-nextjs-skeleton",
   "description": "auth, deployment, theme, api, state, linting, rsc, actions, testing",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "author": "Jason Dukleth",
   "license": "MIT",
@@ -13,13 +13,14 @@
     "devhttps": "next dev --experimental-https",
     "build": "next build",
     "start": "next start",
+    "buildstart": "next build && npm run start",
     "lint": "next lint"
   },
   "dependencies": {
     "@cucumber/cucumber": "^10.0.0",
+    "@prisma/client": "^5.4.2",
     "@radix-ui/themes": "^2.0.0",
     "dayjs": "^1.11.10",
-    "firebase": "^10.4.0",
     "jest": "^29.7.0",
     "joi": "^17.11.0",
     "nanoid": "^5.0.1",

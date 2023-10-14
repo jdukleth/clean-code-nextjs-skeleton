@@ -1,5 +1,4 @@
 import './globals.css'
-import '@radix-ui/themes/styles.css'
 import { Flex, Box, Theme } from '@radix-ui/themes'
 import { SideNavigation } from 'components/layout/SideNavigation'
 import { Inter } from 'next/font/google'
@@ -8,7 +7,7 @@ import css from './layout.module.scss'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'greatest-nextjs-skeleton-ever',
+  title: 'clean-code-nextjs-skeleton',
   description: 'auth, theme, api, state, linting, rsc, actions',
 }
 
