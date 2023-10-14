@@ -19,13 +19,14 @@
 * Recommended VSCode extensions via `.vscode` folder
 
 ## Rules
-* BY RULE, default to React Server Components `RSC`.
+* BY RULE, default to React Server Components `RSC`
   * Makes static generation / ISR happen as often as possible
   * Provides a massive performance increase, reduced server load, saved bandwidth costs, caching, etc
 * ONLY use isolated, client component [islands](https://docs.astro.build/en/concepts/islands/) for "smallest unit" dynamism
   * Make 'use-client' islands be as small and isolated as possible
+  * Similar to Astro islands, but not as extreme and therefore not needed as often
 * REWIRE your brain to think in `actions`
-  * Almost no JS goes into pages/components files.
+  * Almost no JS goes into pages/components files
   * Any actions taken are placed into individual files in the `actions` folder/subfolders
   * Actions tie directly into the `zustand` state management system
   * Even React 18 `server actions` can be organized into the actions folder
