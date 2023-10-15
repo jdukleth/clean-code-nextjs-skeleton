@@ -11,10 +11,15 @@
   "scripts": {
     "dev": "next dev",
     "devhttps": "next dev --experimental-https",
-    "build": "next build",
+    "build": "next lint && next build",
     "start": "next start",
-    "buildstart": "next build && npm run start",
-    "lint": "next lint"
+    "buildstart": "next lint && next build && next start",
+    "lint": "next lint",
+    "migrate:dev": "prisma migrate dev",
+    "migrate:deploy": "prisma migrate deploy",
+    "migrate:status": "prisma migrate status",
+    "migrate:pulll": "prisma db pull",
+    "generate": "prisma generate"
   },
   "dependencies": {
     "@cucumber/cucumber": "^10.0.0",
@@ -36,6 +41,7 @@
     "eslint-config-next": "13.5.4",
     "eslint-plugin-prefer-arrow": "^1.2.3",
     "eslint-plugin-react": "^7.33.2",
+    "prisma": "^5.4.2",
     "sass": "^1.69.2"
   }
 }

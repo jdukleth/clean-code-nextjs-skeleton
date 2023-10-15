@@ -43,10 +43,16 @@ jobs:
           idle_port="3001"
         fi
 
-        # build the idle app - exit on failure
+        # prep the idle app for Next.js "build"
         cd /srv/www/production/my-repo-name-$idle_app
         git pull
         npm install
+
+        # PRISMA migrates database changes BEFORE building the idle app
+        # this ensures no build errors occur due to database changes
+        npm run migrate:deploy
+
+        # build the idle app - exit on failure
         if ! npm run build; then
           echo "Build failed on my-repo-name-$idle_app."
           exit 1

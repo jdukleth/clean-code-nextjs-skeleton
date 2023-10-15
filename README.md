@@ -1,4 +1,4 @@
-# Greatest Next.js Skeleton Ever
+# 🏆 Greatest Next.js Skeleton Ever 💀
 
 > Open Source Code by Jason Dukleth
 
@@ -6,7 +6,7 @@
 * Stays clean no matter how large your project scales.
 * Production ready and performant.
 
-## Includes
+## ✅ Includes
 * Zero-downtime Blue-Green Deployment with `GitHub Actions`
 * Configs for `PM2` and `Nginx`
 * Authentication with `next-auth`
@@ -18,7 +18,7 @@
 * Over 150,000 icons available with `@iconify/react`
 * Recommended VSCode extensions via `.vscode` folder
 
-## Rules
+## 📜 Rules
 * BY RULE, default to React Server Components `RSC`
   * Makes static generation / ISR happen as often as possible
   * Provides a massive performance increase, reduced server load, saved bandwidth costs, caching, etc
@@ -31,7 +31,7 @@
   * Actions tie directly into the `zustand` state management system
   * Even Next.js `server actions` can be organized into the actions folder
 
-## Deployment
+## 🚀 Deployment
 * Zero downtime Blue-Green Deployment
 * Deploys On:
   * Button click through GitHub Actions tab in its repository page
@@ -41,3 +41,9 @@
   * `action.yaml` used by GitHub Actions
   * `.config/.pm2/ecosystem.config.js` symlink to your PM2 folder, if desired
   * `.config/.nginx/mydomain.com` symlink to Nginx sites-available/sites-enabled folders
+
+## 🤝 Contributors
+
+Have a clean-code feature to add to this skeleton? Feel free to fork, adjust and make
+a pull request! Accepting any useful features that build onto it without sacrificing
+the vision laid out above.
