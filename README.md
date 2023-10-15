@@ -5,6 +5,7 @@
 * A clean-code skeleton for Next.js and fullstack development.
 * Stays clean no matter how large your project scales.
 * Production ready and performant.
+* Decisions based on my 22 years of ecommerce and large project expertise.
 
 ## ✅ Includes
 * Zero-downtime Blue-Green Deployment with `GitHub Actions`
