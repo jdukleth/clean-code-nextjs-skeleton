@@ -1,4 +1,4 @@
-import { setAccount } from 'actions/account/setAccount'
+import { setAccountInState } from 'actions/account/setAccountInState'
 import { create } from 'zustand'
 
 export const useAccount = create((set, get) => ({
@@ -6,5 +6,5 @@ export const useAccount = create((set, get) => ({
   account: {},
 
   // ACTIONS
-  setAccount: setAccount(set, get),
+  setAccount: setAccountInState(set, get),
 }))

@@ -1,6 +1,6 @@
 import { isEqual } from 'underscore'
 
-export const setAccount = (set, get) => (session) => {
+export const setAccountInState = (set, get) => (session) => {
   const { name, email, image } = session?.user ?? {}
   const firstName = name?.split(' ')?.[0]
 

@@ -1,19 +1,21 @@
+import { addClientSessionVariables } from 'actions/utilities/next-auth/addClientSessionVariables'
+import { credentialsProvider } from 'actions/utilities/next-auth/getCredentialsProvider'
+import { gitHubProvider } from 'actions/utilities/next-auth/getGitHubProvider'
+import { googleProvider } from 'actions/utilities/next-auth/getGoogleProvider'
+import { onSignIn } from 'actions/utilities/next-auth/onSignIn'
+import { onSignOut } from 'actions/utilities/next-auth/onSignOut'
 import NextAuth from 'next-auth'
-import GitHubProvider from 'next-auth/providers/github'
-import GoogleProvider from 'next-auth/providers/google'
 
 export const authOptions = {
-  providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_ID ?? '',
-      clientSecret: process.env.GOOGLE_SECRET ?? '',
-    }),
-
-    GitHubProvider({
-      clientId: process.env.GITHUB_ID ?? '',
-      clientSecret: process.env.GITHUB_SECRET ?? '',
-    }),
-  ],
+  providers: [googleProvider, gitHubProvider, credentialsProvider],
+  theme: { logo: process.env.NEXTAUTH_CUSTOM_LOGO },
+  events: {
+    signIn: onSignIn,
+    signOut: onSignOut
+  },
+  callbacks: {
+    session: addClientSessionVariables
+  }
 }
 
 export const handler = NextAuth(authOptions)
